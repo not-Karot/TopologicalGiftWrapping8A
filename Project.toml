@@ -4,6 +4,7 @@ authors = ["not-Karot <52074617+not-Karot@users.noreply.github.com>"]
 version = "0.1.0"
 
 [deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 IntervalTrees = "524e6230-43b7-53ae-be76-1e9e4d08d11b"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 LinearAlgebraicRepresentation = "95167b0c-186a-594b-a231-52369c6de044"

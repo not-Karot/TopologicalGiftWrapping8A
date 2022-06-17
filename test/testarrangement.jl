@@ -1,8 +1,9 @@
-using CPDTGW3D8a
+using TopologicalGiftWrapping8A
 using ViewerGL, LinearAlgebra
 GL = ViewerGL
 using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
+TGW = TopologicalGiftWrapping8A
 
 #include("")
 store = [];
@@ -16,8 +17,8 @@ for k=1:5
 	alpha = 2*pi*rand()
 	rx = Lar.r(alpha,0,0); ry = Lar.r(0,alpha,0); rz = Lar.r(0,0,alpha)
 	rot = rx * ry * rz
-	str = Lar.Struct([ transl, scale, rot, mybox ])
-	obj = Lar.struct2lar(str)
+	temp = Lar.Struct([ transl, scale, rot, mybox ])
+	obj = Lar.struct2lar(temp)
 	vs = obj[1]
 	diag = LinearAlgebra.norm(vs[:,8]-vs[:,1])
 	if diag > 1/5
@@ -29,14 +30,14 @@ str = Lar.Struct(store);
 V,CV,FV,EV = Lar.struct2lar(str);
 # V = Plasm.normalize3D(V) TODO:  solve MethodError bug
 
-GL.VIEW([ GL.GLPol(V,CV, GL.COLORS[2], 0.1) ]);
+#GL.VIEW([ GL.GLPol(V,CV, GL.COLORS[2], 0.1) ]);
 
 function testarrangement(V,CV,FV,EV)
 		cop_EV = Lar.coboundary_0(EV::Lar.Cells);
 		cop_FE = Lar.coboundary_1(V, FV::Lar.Cells, EV::Lar.Cells);
 		W = convert(Lar.Points, V');
 
-		V, copEV, copFE, copCF = CPDTGW3D8a.spatial_arrangement(
+		V, copEV, copFE, copCF = TGW.spatial_arrangement(
 				W::Lar.Points, cop_EV::Lar.ChainOp, cop_FE::Lar.ChainOp);
 
 		V = convert(Lar.Points, V');
