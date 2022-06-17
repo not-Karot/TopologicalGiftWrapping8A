@@ -1,4 +1,7 @@
 using LinearAlgebraicRepresentation
+using SparseArrays
+using LinearAlgebra
+using NearestNeighbors
 Lar = LinearAlgebraicRepresentation
 
 """
@@ -219,17 +222,6 @@ function removeinnerloops(g, nFE)
 	nFE = Lar.lar2cop(FE[1:end-g])
 end
 
-function spatial_arrangement_2(
-		rV::Lar.Points,
-		rcopEV::Lar.ChainOp,
-		rcopFE::Lar.ChainOp, multiproc::Bool=false)
-
-	rcopCF = Lar.build_copFC(rV, rcopEV, rcopFE)  ######
-	#rcopCF = minimal_3cycles(rV, rcopEV, rcopFE)
-    return rV, rcopEV, rcopFE, rcopCF
-end
-
-
 
 
 """
@@ -257,5 +249,5 @@ function spatial_arrangement(
 	#@error "comps# = $(length(bicon_comps))"
 	# 3-complex and containment graph
 
-	rV, rEV, rFE, rCF = spatial_arrangement_2(rV, rcopEV, rcopFE)
+	rV, rEV, rFE, rCF = Lar.Arrangement.spatial_arrangement_2(rV, rcopEV, rcopFE)
 end
