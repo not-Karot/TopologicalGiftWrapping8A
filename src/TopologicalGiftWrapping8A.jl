@@ -9,8 +9,6 @@ using LinearAlgebra
 using Distributed
 Lar = LinearAlgebraicRepresentation
 
-
-
 include("./spatial_arrangement.jl")
 
 end # module
