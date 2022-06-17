@@ -12,8 +12,6 @@ makedocs(
 	sitename = "CPD-TGW3D-8a.jl",
 	assets = ["assets/lar.css", "assets/logo.png"],
 	pages = [
-		"Home" => "index.md",
-		"TGW3D-8a" => "arrangement.md",
         "Informazioni generali" => "index.md",
         "Introduzione" => "introduzione.md",
 		"Stato dell'arte" => [

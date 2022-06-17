@@ -42,3 +42,7 @@ di mappe matriciali di operatori.\
 **Memorizzazione di Complessi Geometrici Lar:** La topologia di un  
 3-complesso LAR è completamente rappresentata dagli operatori  
 ($\delta_2$,$\delta_1$, $\delta_0$) , cioè dagli array sparsi $(CF, FE, EV)$, fornendo le incidenze tra vertici, bordi e facce, sia per b-reps  (rappresentazione geometrica dai bordi) che per rappresentazioni cellulari.
+
+
+
+[^1]: Si ricordi che con la notazione C si intende il complesso di catene nel campo binario 1,0 e con $C^\circlearrowleft$ si indica il complesso di catene orientato all'interno del campo ternario 0,1,-1 in modo da avere confini orientati. Quindi le matrici di confine generate da TGW sono mappe $C_3$ $\longmapsto C_2^\circlearrowleft$.

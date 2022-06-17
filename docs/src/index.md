@@ -26,6 +26,6 @@ Link ai notebook:
 # Indice
 
 ```@contents
-Pages = ["intro.md", "grafo.md","sviluppo.md","analisi.md","esempiobool2d.md","esempiobool3d.md","conclusioni.md"]
+Pages = ["index.md", "introduzione.md","ComplCatECelle.md","ComplCelle.md","CatEDisp.md","ciclieconfini.md","CalcoloConfini.md","AlgTGW.md","funzioni.md","AnalisiPrestazioni.md", "ottimizzazione.md","riferimenti.md"]
 Depth = 3
 ```
