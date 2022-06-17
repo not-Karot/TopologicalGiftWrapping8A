@@ -238,12 +238,12 @@ figure ai fini dell'utilizzo del arrangment planare. A tal fine usa come
 funzioni di supporto **frag face** e **merge vertices**. Saranno proprio  
 questi i metodi che andremmo ad ottimizare.\
 1) **frag face**: effettua la trasformazione in 2D delle facce fornite in  
-input tramite il parametro sigma ed infine ogni faccia di questo  
-parametro sigma si interseca con le facce in *sp index*.\
+   input tramite il parametro sigma ed infine ogni faccia di questo  
+   parametro sigma si interseca con le facce in *sp index*.\
 2) **merge vertices**: effettua il merge delle facce vicine, vertici e  
-lati.\
+   lati.\
 3) **spatial arrangment 2**: ricostruisce le facce dei poligoni permettendo  
-il wrapping in 3D.
+   il wrapping in 3D.
 
 # Analisi prestazioni
 

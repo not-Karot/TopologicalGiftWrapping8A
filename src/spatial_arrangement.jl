@@ -21,12 +21,14 @@ function frag_face_channel(in_chan, out_chan, V, EV, FE, sp_idx)
     end
 end
 
-
-
 """
-	frag_face(V, EV, FE, sp_idx, sigma)
 
-`sigma` face fragmentation against faces in `sp_idx[sigma]`
+    frag_face(V::Points, copEV::ChainOp, copFE::ChainOp; [multiproc::Bool])
+
+Performs the 2D transformation of the faces provided as
+input via the sigma parameter and finally each face in this
+sigma parameter intersects with the faces in sp index
+
 """
 function frag_face(V::Matrix{Float64}, EV::SparseMatrixCSC{Int8, Int64}, FE::SparseMatrixCSC{Int8, Int64},
     sp_idx::Vector{Vector{Int64}}, sigma::Int64)
@@ -59,6 +61,15 @@ function frag_face(V::Matrix{Float64}, EV::SparseMatrixCSC{Int8, Int64}, FE::Spa
     return nV, nEV, nFE
 end
 
+"""
+
+    merge_vertices(V::Lar.Points, EV::Lar.ChainOp, FE::Lar.ChainOp, err::Float64)
+
+Performs merge of neighboring faces, vertices and sides
+
+## Additional arguments:
+- `err::Float64`: Hyperparameter. Defaults to `1e-4`.
+"""
 function merge_vertices(V::Lar.Points, EV::Lar.ChainOp, FE::Lar.ChainOp, err=1e-4)
     vertsnum = size(V, 1)
     edgenum = size(EV, 1)
@@ -151,14 +162,15 @@ function merge_vertices(V::Lar.Points, EV::Lar.ChainOp, FE::Lar.ChainOp, err=1e-
 
     return Lar.Points(nV), nEV, nFE
  end
-#function merge_vertices(V::Lar.Points, EV::Lar.ChainOp, FE::Lar.ChainOp, err=1e-4)
-#println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-#println("\n\nHERE TO Make LOCAL CONGRUENCE\n\n")
-#println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-#   return Lar.Points(nV), nEV, nFE
-#end
+"""
+    spatial_arrangement_1(V::Points, copEV::ChainOp, copFE::ChainOp; [multiproc::Bool])
 
+First step of spatial arrangement.
+It computes and fragments the faces in order to recall planar arrangement.
 
+## Additional arguments:
+- `multiproc::Bool`: Runs the computation in parallel mode. Defaults to `false`.
+"""
 function spatial_arrangement_1(
 		V::Lar.Points,
 		copEV::Lar.ChainOp,
