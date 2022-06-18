@@ -31,4 +31,4 @@ Wrapping 3D della libreria [LinearAlgebraicRepresentation.jl](https://github.com
 
 # Documentazione
 
-> [https://not-karot.github.io/TopologicalGiftWrapping8A/](https://not-karot.github.io/TopologicalGiftWrapping8A/)
+> [https://not-karot.github.io/TopologicalGiftWrapping8A/build/index.html](https://not-karot.github.io/TopologicalGiftWrapping8A/build/index.html)
