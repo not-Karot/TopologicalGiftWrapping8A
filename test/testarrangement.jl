@@ -36,7 +36,7 @@ str = Lar.Struct(store);
 V,CV,FV,EV = Lar.struct2lar(str);
 # V = Plasm.normalize3D(V) TODO:  solve MethodError bug
 
-#GL.VIEW([ GL.GLPol(V,CV, GL.COLORS[2], 0.1) ]);
+GL.VIEW([ GL.GLPol(V,CV, GL.COLORS[2], 0.1) ]);
 
 function testarrangement(V,CV,FV,EV)
 		cop_EV = Lar.coboundary_0(EV::Lar.Cells);
