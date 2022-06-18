@@ -10,7 +10,7 @@ sviluppato per il corso di **Calcolo Parallelo e Distribuito** svolto da:
 | Raffaele Scarano | 576304 | raf.scarano@stud.uniroma3.it | [https://github.com/not-Karot](https://github.com/not-Karot) |
 
 > L'obiettivo del progetto è quello di ottimizzare l'esecuzione dell'algoritmo Topological Gift
-Wrapping 3D della libreria [LinearAlgebraicRepresentation.jl](https://github.com/cvdlab/LinearAlgebraicRepresentation.jl).
+> Wrapping 3D della libreria [LinearAlgebraicRepresentation.jl](https://github.com/cvdlab/LinearAlgebraicRepresentation.jl).
 
 
 
