@@ -9,10 +9,10 @@ makedocs(
 	format = Documenter.HTML(
 		prettyurls = get(ENV, "CI", nothing) == "true"
 	),
-	sitename = "CPD-TGW3D-8a.jl",
+	sitename = "TopologicalGiftWrapping8A.jl",
 	assets = ["assets/lar.css", "assets/logo.png"],
 	pages = [
-        "Informazioni generali" => "index.md",
+        "TopologicalGiftWrapping8A" => "index.md",
         "Introduzione" => "introduzione.md",
 		"Stato dell'arte" => [
             "Complessi di catene e complessi di celle" => "ComplCatECelle.md",
@@ -24,7 +24,7 @@ makedocs(
         "Algoritmo Topological Gift Wrapping - TGW" => "AlgTGW.md",
 		"Funzioni del progetto" => "funzioni.md",
 		"Analisi delle prestazioni" => "AnalisiPrestazioni.md",
-        "Ottimizzazione" => "ottimizzazione.md",
+        "Ottimizzazione" => "analisi.md",
 		"Riferimenti" => "riferimenti.md"
     ],
 )

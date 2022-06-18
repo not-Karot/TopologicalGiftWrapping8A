@@ -13,8 +13,6 @@ sviluppato per il corso di **Calcolo Parallelo e Distribuito** svolto da:
 Wrapping 3D della libreria [LinearAlgebraicRepresentation.jl](https://github.com/cvdlab/LinearAlgebraicRepresentation.jl).
 
 
-
-Link al repository GitHub: [https://github.com/not-Karot/TopologicalGiftWrapping8A](https://github.com/not-Karot/TopologicalGiftWrapping8A)
 ## Dipendenze
 
 `TopologicalGiftWrapping8A.jl` ha alcune dipendenze Julia:
@@ -31,15 +29,6 @@ Link al repository GitHub: [https://github.com/not-Karot/TopologicalGiftWrapping
 - [Triangulate](https://github.com/JuliaGeometry/Triangulate.jl)
 
 
-Link ai notebook:
-- `frag_face_parallelized.ipynb`: [https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/frag_face_parallelized.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/frag_face_parallelized.ipynb)
-- `merge_vertices_parallelized.ipynb`: [https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/merge_vertices_parallelized.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/merge_vertices_parallelized.ipynb)
-- `spatial_arrangement_1.ipynb` : [spatial_arrangement_1.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement_1)
-- `spatial_arrangement.ipynb`: [spatial_arrangement.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement)
+# Documentazione
 
-# Indice
-
-```@contents
-Pages = ["intro.md", "grafo.md","sviluppo.md","analisi.md","esempiobool2d.md","esempiobool3d.md","conclusioni.md"]
-Depth = 3
-```
+> [https://not-karot.github.io/TopologicalGiftWrapping8A/](https://not-karot.github.io/TopologicalGiftWrapping8A/)
