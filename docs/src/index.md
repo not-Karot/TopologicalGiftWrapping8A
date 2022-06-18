@@ -2,11 +2,11 @@
 
 Progetto **TopologicalGiftWrapping8A** per il corso di **Calcolo Parallelo e Distribuito** svolto da:
 
-| Nome | Matricola | E-mail | Profilo Github |
-| --- | --- | --- | --- |
-| Ennio Malvati | 484998 | enn.malvati@stud.uniroma3.it | [https://github.com/\](https://github.com/) |
-| Gianluca Di Lorenzo | 583630 | gia.dilorenzo1@stud.uniroma3.it | [https://github.com/\](https://github.com/) |
-| Raffaele Scarano | 576304 | raf.scarano@stud.uniroma3.it | [https://github.com/](https://github.com/) |
+| Nome | Matricola | E-mail | Profilo Github                                                |
+| --- | --- | --- |---------------------------------------------------------------|
+| Ennio Malvati | 484998 | enn.malvati@stud.uniroma3.it | [https://github.com/Ennio28\](https://github.com/)          |
+| Gianluca Di Lorenzo | 583630 | gia.dilorenzo1@stud.uniroma3.it | [https://github.com/CostaG25/\](https://github.com/CostaG25)  |
+| Raffaele Scarano | 576304 | raf.scarano@stud.uniroma3.it | [https://github.com/not-Karot/\](https://github.com/not-Karot/) |
 
 
 Link al repository GitHub: [https://github.com/not-Karot/TopologicalGiftWrapping8A](https://github.com/not-Karot/TopologicalGiftWrapping8A)

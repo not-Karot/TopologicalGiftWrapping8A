@@ -4,6 +4,12 @@ GL = ViewerGL
 using LinearAlgebraicRepresentation
 Lar = LinearAlgebraicRepresentation
 TGW = TopologicalGiftWrapping8A
+using IntervalTrees
+using NearestNeighbors
+using Triangulate
+using SparseArrays
+using LinearAlgebra
+using Distributed
 
 #include("")
 store = [];
