@@ -63,6 +63,7 @@ V, EV, FE = get_input()
 
 Inserendo le funzioni parallelizzate nel metodo `spatial_arrangement_1`,
 i risultati diventano significativi, come mostrato dalle seguenti figure.
+> [spatial_arrangement_1.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement_1)
 
 ```julia
 V, EV, FE = get_input()
@@ -81,6 +82,8 @@ V, EV, FE = get_input()
 Il tempo di esecuzione si riduce quindi del 75%, mentre la memoria allocata di quasi il 60%.
 
 Infine testiamo l'intero processo `spatial_arrangement` ottenendo i seguenti miglioramenti.
+
+> [spatial_arrangement.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement)
 
 ```julia
 @benchmark Lar.Arrangement.spatial_arrangement(W, cop_EV, cop_FE)
