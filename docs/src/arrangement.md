@@ -1,5 +1,5 @@
 
-![image](images/logo-roma-tre-blu-corretto-500x271.jpg#center)
+![image](images/logo-roma-tre-blu-corretto-500x271.jpg)
 
 ***Magistrale in Ingnegneria Informatica***
 
@@ -114,7 +114,7 @@ valutare $A(S)$ come complesso di catene $C$.\
 Esempio di 3D arrangment\
 
 
-![image](images/Immagine1.png#center) ![image](images/Immagine2.png#center)
+![image](images/Immagine1.png) ![image](images/Immagine2.png)
 
 
 Nelle figure si mostra la disposizione $A(S)$ generata dalla collezione  
