@@ -11,7 +11,7 @@ makedocs(
 		prettyurls = get(ENV, "CI", nothing) == "true"
 	),
 	sitename = "TopologicalGiftWrapping8A.jl",
-
+	assets = ["assets/lar.css", "assets/logo.png"],
 	pages = [
         "TopologicalGiftWrapping8A" => "index.md",
         "Introduzione" => "introduzione.md",
