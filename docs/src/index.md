@@ -34,8 +34,8 @@ Link al repository GitHub: [https://github.com/not-Karot/TopologicalGiftWrapping
 Link ai notebook:
 - `frag_face_parallelized.ipynb`: [https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/frag_face_parallelized.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/frag_face_parallelized.ipynb)
 - `merge_vertices_parallelized.ipynb`: [https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/merge_vertices_parallelized.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/merge_vertices_parallelized.ipynb)
-- `spatial_arrangement_1.ipynb` : [spatial_arrangement_1.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement_1)
-- `spatial_arrangement.ipynb`: [spatial_arrangement.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement)
+- `spatial_arrangement_1.ipynb` : [https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement_1.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement_1.ipynb)
+- `spatial_arrangement.ipynb`: [https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/spatial_arrangement.ipynb)
 
 # Indice
 
