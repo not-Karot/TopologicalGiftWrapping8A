@@ -1,37 +1,101 @@
-## Prestazioni  
+## Prestazioni
+Con l'aiuto della libreria `Profile` è possibile
+visualizzare a schermo un riferimento grafico relativo ai
+tempi di esecuzione.
 
-Durante lo studio definitivo del progetto, sono stati eseguiti dei benchamrk, tramite la macro `@btime` del package **BenchmarkTools**, per valutare le prestazioni e osservare i benifici apportati alle varie porzioni di codice. 
+L'asse orizzontale, nel grafico prodotto, rappresenta la quantità di tempo (più precisamente, il numero di backtraces) 
+speso su ogni riga, è quindi sensato focalizzare l'attenzione sulle righe relative alle barre più lunghe.
 
-Come sperato, le modifiche introdotte hanno migliorato complessivamente le prestazioni rispetto la versione originale, riducendo il tempo di esecuzione di ogni funzione di cui il progetto è composto e il numero di allocazioni in memoria.
+Di seguito il grafico prodotto da `Profile` per il metodo `spatial_arrangement`.
 
-E' da notare come le funzioni `bool2d()` e `bool3d()` siano rispettivamente influenzate da `planar_arrangement()`e da `spatial_arrangement()`. I tempi di esecuzione di quest'ultime, infatti, impattono fortemente sulle prestazioni complessive del codice. Le figure di seguito, generate automaticamente dal package **ProfileView**, mostrano graficamente quanto espresso.
+![Prestazioni di spatial_arrangement](./images/spatial_arrangement.png)
 
-![Prestazioni di bool2d](prof2d.png)
-![Prestazioni di bool3d](prof3d.png)
+Si vede come la riga più in basso, quindi anche quella in cui il 
+processo rimane fermo più tempo è relativa a `spatial_arrangement_1`.
 
-## Errori noti
+Applichiamo quindi `Profile` a `spatial_arrangement_1` ottenendo il seguente
+grafico.
 
-Nell’esempio sottostante (due cubi con spigolo unitario e con una faccia in comune) la funzione `Lar.coboundary_1()` non funziona correttamente e restituisce un errore sul file `interface.jl` presente in un altro progetto.
+![Prestazioni di spatial_arrangement_1](./images/spatial_arrangement_1.png)
+
+
+> Il metodo `spatial_arrangement_1` presenta già una parallelizzazione che sfrutta
+> un numero di Threads superiore ad 1. 
+
+La funzione su cui focalizzarsi risulta essere quindi `frag_face`.
+
+Nel notebook  [frag_face_parallelized.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/frag_face_parallelized.ipynb)
+ci occuppiamo quindi di migliorare le prestazioni di questo metodo con un risultato
+di riduzione spaziale e temporale di quasi il 20%, come mostrato dai seguenti benchmarks.
+
 
 ```julia
-import LinearAlgebraicRepresentation as Lar
-import ViewerGL as GL
-using Base.Threads, SparseArrays
-n, m, p = 1, 1, 1
-V, (VV, EV, FV, CV) = Lar.cuboidGrid([n, m, p], true)
-cube = V, FV, EV
-assembly = Lar.Struct([
-    Lar.Struct([Lar.t(0, 0, 0), Lar.r(0, 0, 0), cube])
-    Lar.Struct([Lar.t(0, 0, 1), Lar.r(0, 0, 0), cube])
-])
-V, FV = Lar.struct2lar(assembly)
-
-meshes = []
-for k = 1:length(FV)
-    color = GL.MayaColors[k%12+1] - (rand(Float64, 4) * 0.1)
-    push!(meshes, GL.GLGrid(V, [FV[k]], color, 0.9))
-end
-
-GL.VIEW(meshes);
-W, (copEV, copFE, copCF), boolmatrix = LARgenerators.bool3d(assembly)
+V, EV, FE = get_input()
+@benchmark Lar.Arrangement.frag_face(Lar.Points(V),EV,FE,[2,3,4,5],2)
 ```
+
+![frag_face](./images/frag_face.png)
+
+```julia
+V, EV, FE = get_input()
+@benchmark frag_face_async(Lar.Points(V),EV,FE,[2,3,4,5],2)
+```
+
+![frag_face_async](./images/frag_face_async.png)
+
+La parallelizzazione prosegue nel notebook [merge_vertices_parallelized.ipynb](https://github.com/not-Karot/TopologicalGiftWrapping8A/blob/main/notebooks/merge_vertices_parallelized.ipynb)
+con i miglioramenti evidenziati dai successivi benchmarks.
+
+```julia
+V, EV, FE = get_input()
+@benchmark Lar.Arrangement.merge_vertices($Lar.Points(V),$Lar.ChainOp(EV),$Lar.ChainOp(FE),$1e-8)
+```
+
+![merge_vertices](./images/merge_vertices.png)
+
+```julia
+V, EV, FE = get_input()
+@benchmark merge_vertices_async(Lar.Points(V),Lar.ChainOp(EV),Lar.ChainOp(FE),1e-8)
+```
+
+![merge_vertices_async](./images/merge_vertices_async.png)
+
+
+Inserendo le funzioni parallelizzate nel metodo `spatial_arrangement_1`,
+i risultati diventano significativi, come mostrato dalle seguenti figure.
+
+```julia
+V, EV, FE = get_input()
+@benchmark Lar.Arrangement.spatial_arrangement_1(Lar.Points(V),Lar.ChainOp(EV),Lar.ChainOp(FE),false)
+```
+![spatial_arrangement_1_bench](./images/spatial_arrangement_1_bench.png)
+
+
+```julia
+V, EV, FE = get_input()
+@benchmark spatial_arrangement_1_rev(Lar.Points(V),Lar.ChainOp(EV),Lar.ChainOp(FE)) 
+```
+
+![spatial_arrangement_1_rev](./images/spatial_arrangement_1_rev.png)
+
+Il tempo di esecuzione si riduce quindi del 75%, mentre la memoria allocata di quasi il 60%.
+
+Infine testiamo l'intero processo `spatial_arrangement` ottenendo i seguenti miglioramenti.
+
+```julia
+@benchmark Lar.Arrangement.spatial_arrangement(W, cop_EV, cop_FE)
+```
+![spatial_arr](./images/spatial_arr.png)
+
+
+```julia
+@benchmark TGW.spatial_arrangement(W, cop_EV, cop_FE)
+```
+
+![spatial_arr_rev](./images/spatial_arr_rev.png)
+
+>L'esecuzione dell'algoritmo TGW3D risulta essere quindi ridotta 
+di un fattore circa 4, sia per quanto riguarda la memoria che il tempo
+utilizzati.
+> 
+
