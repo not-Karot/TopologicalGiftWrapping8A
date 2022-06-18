@@ -97,8 +97,7 @@ Infine testiamo l'intero processo `spatial_arrangement` ottenendo i seguenti mig
 
 ![spatial_arr_rev](./images/spatial_arr_rev.png)
 
->L'esecuzione dell'algoritmo TGW3D risulta essere quindi ridotta 
-di un fattore circa 4, sia per quanto riguarda la memoria che il tempo
-utilizzati.
-> 
+>L'esecuzione dell'algoritmo TGW3D risulta essere quindi ridotta di un fattore circa 4, sia per quanto riguarda la memoria che il tempo
+> utilizzati.
+
 
